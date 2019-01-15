@@ -4,7 +4,7 @@ import os
 
 def rep (arg,file,n=False,v=False,r=False):
 	if(file != None):
-		file_object = open(file,'r')
+		file_object = open(file,'r') #opening the file
 		i = 0
 		try:
 			for line in file_object:
@@ -27,11 +27,11 @@ def rep (arg,file,n=False,v=False,r=False):
 	else:
 		for p,d,f in os.walk(os.getcwd()):
 			for i in f:
-				rep(arg,p+'/'+i,n,v,r)
+				rep(arg,p+'/'+i,n,v,r) #call of the function for the file in the dir
 try:
 	if(re.match(r'-\w+',sys.argv[1])):
-		
-		v = 'v' in sys.argv[1]
+		#test for the options
+		v = 'v' in sys.argv[1] 
 		r = 'r' in sys.argv[1]
 		n = 'n' in sys.argv[1]
 
@@ -64,4 +64,5 @@ except IndexError:
 	print("number of arguments is too short")
 	exit()
 
-rep(arg,file,n,v,r)
+if __name__ == '__main__':
+	rep(arg,file,n,v,r)	
