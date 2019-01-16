@@ -9,7 +9,7 @@ def rep (arg, file, n=False, v=False, r=False):
 		try:
 			for line in file_object:
 				i += 1
-				if(v):
+				if v:
 					if not arg in line:
 						if(n):
 							print("{0}:{1}".format(i,line),end="")
