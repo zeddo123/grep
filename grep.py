@@ -2,22 +2,22 @@ import sys
 import re
 import os
 
-def rep (arg,file,n=False,v=False,r=False):
-	if(file != None):
+def rep (arg, file, n=False, v=False, r=False):
+	if not file is None:
 		file_object = open(file,'r') #opening the file
 		i = 0
 		try:
 			for line in file_object:
 				i += 1
 				if(v):
-					if not(arg in line):
+					if not arg in line:
 						if(n):
 							print("{0}:{1}".format(i,line),end="")
 						else:
 							print("{0}".format(line),end="")
 				else:
-					if (arg in line):
-						if(n):
+					if arg in line:
+						if n:
 							print("{0}:{1}".format(i,line),end="")
 						else:
 							print("{0}".format(line),end="")
@@ -36,7 +36,7 @@ try:
 		n = 'n' in sys.argv[1]
 
 		try :
-			arg = sys.argv[2]	
+			arg = sys.argv[2]
 		except IndexError:
 			print("no arg found")
 			exit()
