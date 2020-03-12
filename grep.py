@@ -29,7 +29,7 @@ def rep (arg, file, n=False, v=False, r=False):
 			for i in f:
 				rep(arg,p+'/'+i,n,v,r) #call of the function for the file in the dir
 try:
-	if(re.match(r'-\w+',sys.argv[1])):
+	if re.match(r'-\w+',sys.argv[1]):
 		#test for the options
 		v = 'v' in sys.argv[1] 
 		r = 'r' in sys.argv[1]
@@ -41,7 +41,7 @@ try:
 			print("no arg found")
 			exit()
 		
-		if(r):
+		if r:
 			try:
 				ch = sys.argv[3]
 				print("too many args")
